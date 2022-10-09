@@ -34,6 +34,7 @@ def connectNetwork():
 def install():
     try:
         # os.system("git clone --single-branch -b https://github.com/tpruvot/cpuminer-multi")
+        os.system("apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev zlib1g-dev make g++")
         os.system("git clone --single-branch -b ARM https://github.com/tpruvot/cpuminer-multi")
         os.system("@cls||clear")
         print("\nกำลังติดตั้ง...\n")
@@ -41,7 +42,7 @@ def install():
         print("ติดตั้งไม่สำเร็จ!")
 
 
-zergpool = ["stratum+tcp://verushash.mine.zergpool.com:3300","stratum+tcp://verushash.na.mine.zergpool.com:3300","stratum+tcp://verushash.eu.mine.zergpool.com:3300","stratum+tcp://verushash.asia.mine.zergpool.com:3300"]
+zergpool = ["stratum+tcp://yescryptR16.mine.zergpool.com:6534","stratum+tcp://yescryptR16.na.mine.zergpool.com:6534","stratum+tcp://yescryptR16.eu.mine.zergpool.com:6534","stratum+tcp://yescryptR16.asia.mine.zergpool.com:6534"]
 # run miner function
 def runOnline():
 
@@ -72,14 +73,14 @@ def runOnline():
                 print("\033[00m\n")
 
                 time.sleep(2)
-                os.system(f"cd ccminer && ./ccminer -a verus -o {s['pool']} -u {s['wallet']}.{nameMiner} -p {s['password']},ID={nameMiner} -t {cpu}")
+                os.system(f"cd ccminer && ./cpuminer -a yescryptR16 -o {s['pool']} -u {s['wallet']}.{nameMiner} -p {s['password']},ID={nameMiner} -t {cpu}")
             else:
 
                 print("PASS   =  ",s['password'])
                 print("\033[00m\n")
 
                 time.sleep(2)
-                os.system(f"cd ccminer && ./ccminer -a verus -o {s['pool']} -u {s['wallet']}.{nameMiner} -p {s['password']} -t {cpu}")
+                os.system(f"cd ccminer && ./cpuminer -a yescryptR16 -o {s['pool']} -u {s['wallet']}.{nameMiner} -p {s['password']} -t {cpu}")
         except:
             # push = {'status': False,'miner': '','name': '','cpu': 1}
             # with open("set-miner/online.json", "w") as set:
@@ -123,7 +124,7 @@ def runOffline():
         print("\033[00m\n")
 
 
-        os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet} -p {password} -t {cpu}")
+        os.system(f"cd cpuminer-multi && ./cpuminer -a yescryptR16 -o {pool} -u {wallet} -p {password} -t {cpu}")
     except:
         push = {'status': False,'pool': '','wallet': '','pass': '','cpu': ''}
         with open("set-miner/offline.json", "w") as set:
@@ -214,8 +215,9 @@ while True:
 # # install miner function 
 # def install():
 #     try:
-#         # os.system("git clone --single-branch -b ARM https://github.com/monkins1010/ccminer")
-#         os.system("git clone https://github.com/mantvmass/ccminer_mmv")
+#         # os.system("git clone https://github.com/tpruvot/cpuminer-multi")
+          os.system("apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev zlib1g-dev make g++")
+#         os.system("git clone https://github.com/tpruvot/cpuminer-multi")
 #         os.system("@cls||clear")
 #         print("ติดตั้งสำเร็จ")
 #     except:
@@ -237,7 +239,7 @@ while True:
 #         return
 #     print("ccminer CPU3.7 for VerusHash v2.1 - 2.2 by Monkins1010 based on ccminer")
 #     print("Originally based on Christian Buchner and Christian H. project")
-#     os.system(f"cd ccminer_mmv && ./ccminer -a verus -o {pool} -u {wallet} -p {password} -t {cpu}")
+#     os.system(f"cd ccminer_mmv && ./cpuminer -a yespowerR16 -o {pool} -u {wallet} -p {password} -t {cpu}")
 
 
 
